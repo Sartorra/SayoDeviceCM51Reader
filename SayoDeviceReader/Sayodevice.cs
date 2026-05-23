@@ -16,6 +16,7 @@ namespace SayoDeviceReader
 
         // Patterns
         private static readonly byte[] cpuUsagePattern = [0x0B, 0x00, 0xFF, 0x00, 0xC0]; // Offset of 4.
+        private static readonly byte[] analogSignalPattern = [0x0E, 0x00, 0x15, 0x00]; // Offset 4.
 
         // Packets
         private static readonly byte[] getAnalogPacket = [0x21, 0x12, 0x3B, 0x12, 0x05, 0x00, 0x15, .. new byte[57]];
@@ -128,7 +129,10 @@ namespace SayoDeviceReader
                         }
                         break;
                     case analogReport:
-                        GetAnalogInputs(readBuffer);
+                        if (PatternScan(readBuffer, 4, analogSignalPattern))
+                        {
+                            GetAnalogInputs(readBuffer);
+                        }
                         break;
                 }
             }

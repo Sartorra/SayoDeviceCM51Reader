@@ -12,7 +12,7 @@ namespace SayoMonitor
             Console.WriteLine("SayoDevice obtained successfully!");
             Console.CursorVisible = false;
 
-            while(true)
+            while (true)
             {
                 string fullMenu = "";
                 Console.SetCursorPosition(0, 1);
