@@ -22,6 +22,7 @@ namespace SayoDeviceReader
 
 
         public static uint TargetFramerate = 60;
+        public bool isRunning = true;
         private static byte[] keyConfig = {0, 1, 6, 7};
         private unsafe SayoDevice* sayoHandle;
         private static VideoMode rendererMode = new VideoMode(new Vector2u(1189, 669));
@@ -78,6 +79,7 @@ namespace SayoDeviceReader
             // Main rendering loop.
             while(mainRenderer.IsOpen)
             {
+                isRunning = true;
                 // Fire any events that occured.
                 mainRenderer.DispatchEvents();
 
@@ -94,6 +96,7 @@ namespace SayoDeviceReader
                 Thread.Sleep((int)(1000 / TargetFramerate));
             }
 
+            isRunning = false;
             Console.WriteLine("Renderer has finished.");
         }
 

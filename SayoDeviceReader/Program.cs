@@ -11,8 +11,8 @@ namespace SayoMonitor
 
             Console.WriteLine("SayoDevice obtained successfully!");
 
-            // This use to be used to output it to console, since then SFML has been used to display a cat.
-            while (true)
+            // This use to be used to output it to console, since then SFML has been used to display a cat. I know, this is kinda dumb to keep as the main. But I am planning to add more later.
+            while (catRenderer.isRunning)
             {
                 //string fullMenu = "";
                 //Console.SetCursorPosition(0, 1);
