@@ -31,7 +31,7 @@ namespace SayoDeviceReader
         private HidStream streamHandle;
         private Stopwatch timeSinceLastRequest;
         private bool shouldBackgroundWorkerRun;
-        public byte[] analogKeyStates;
+        public volatile byte[] analogKeyStates;
         public byte cpuUsage;
 
         // Functions
